@@ -8,4 +8,5 @@ Wampole, Erin M., Gerber, Brian D., Farris, Zach J., Razafimahaimodison, Jean Cl
 ## Example Views
 
 - species_elev_nearvill.csv - A summary of min, max and average elevation and nearest village data by species common name.
+- species_most_prevalent_site.csv - Site where a given species most prevalently photographed.
 - species_pics.csv - A descending list of number of pics by species common name.
