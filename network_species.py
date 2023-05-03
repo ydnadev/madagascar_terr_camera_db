@@ -63,7 +63,7 @@ else:
     sites = nx.from_pandas_edgelist(si_select, 'common_name', 'site')
 
     # Initiate PyVis network object
-    site_net = Network(height='465px', bgcolor='white', font_color='blue')
+    site_net = Network(height='1000px', bgcolor='white', font_color='blue')
 
     # Take Networkx graph and translate it to a PyVis graph format
     site_net.from_nx(sites)
@@ -73,6 +73,23 @@ else:
                        spring_length=110, spring_strength=0.10,
                        damping=0.95)
 
+    for node in site_net.nodes:
+        if node['id'] == 'MAK':
+            node['color'] = '#440154ff'
+        elif node['id'] == 'ASSR':
+            node['color'] = '#453781ff'
+        elif node['id'] == 'BET':
+            node['color'] = '#33638dff'
+        elif node['id'] == 'MAS':
+            node['color'] = '#238a8dff'
+        elif node['id'] == 'MTD':
+            node['color'] = '#29af7fff'
+        elif node['id'] == 'RNP':
+            node['color'] = '#73d055ff'
+        elif node['id'] == 'TGK':
+            node['color'] = '#dcde319ff'
+        else:
+            node ['color'] = 'black'
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
         path = '/tmp'
@@ -86,5 +103,5 @@ else:
         HtmlFile = open(f'{path}/pyvis_graph.html', 'r', encoding='utf-8')
 
     # Load HTML file in HTML component for display on Streamlit page
-    components.html(HtmlFile.read(), height=600)
-    st.dataframe(sites)
+    components.html(HtmlFile.read(), height=1100)
+    #st.dataframe(sites)
