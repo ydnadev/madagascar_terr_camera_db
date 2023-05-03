@@ -82,7 +82,7 @@ else:
     sites = nx.from_pandas_edgelist(si_select, 'common_name', 'site')
 
     # Initiate PyVis network object
-    site_net = Network(height='1000px', bgcolor='black', font_color='grey')
+    site_net = Network(height='1000px', bgcolor='white', font_color='black')
 
     # Take Networkx graph and translate it to a PyVis graph format
     site_net.from_nx(sites)
@@ -109,7 +109,7 @@ else:
         elif node['id'] == 'TGK':
             node['color'] = '#dce319ff'
         else:
-            node['color'] = 'white'
+            node['color'] = 'grey'
     
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
