@@ -33,7 +33,7 @@ if sp_filter:
     # Adjust node colors to Viridis pallette
     for node in anim_net.nodes:
         if node['id'] == 'MAK':
-            color = '#440154ff'
+            node['color'] = '#440154ff'
         elif node['id'] == 'ASSR':
             node['color'] = '#453781ff'
         elif node['id'] == 'BET':
@@ -47,7 +47,7 @@ if sp_filter:
         elif node['id'] == 'TGK':
             node['color'] = '#dce319ff'
         else:
-            node ['color'] = 'grey'
+            node['color'] = 'grey'
 
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
@@ -99,7 +99,7 @@ else:
         elif node['id'] == 'ASSR':
             node['color'] = '#453781ff'
         elif node['id'] == 'BET':
-            color = '#33638dff'
+            node['color'] = '#33638dff'
         elif node['id'] == 'MAS':
             node['color'] = '#238a8dff'
         elif node['id'] == 'MTD':
@@ -109,7 +109,7 @@ else:
         elif node['id'] == 'TGK':
             node['color'] = '#dce319ff'
         else:
-            node ['color'] = 'white'
+            node['color'] = 'white'
     
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
