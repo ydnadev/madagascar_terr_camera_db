@@ -30,6 +30,25 @@ if sp_filter:
                        spring_length=110, spring_strength=0.10,
                        damping=0.95)
 
+    # Adjust node colors to Viridis pallette
+    for node in anim_net.nodes:
+        if node['id'] == 'MAK':
+            color = '#440154ff'
+        elif node['id'] == 'ASSR':
+            node['color'] = '#453781ff'
+        elif node['id'] == 'BET':
+            node['color'] = '#33638dff'
+        elif node['id'] == 'MAS':
+            node['color'] = '#238a8dff'
+        elif node['id'] == 'MTD':
+            node['color'] = '#29af7fff'
+        elif node['id'] == 'RNP':
+            node['color'] = '#73d055ff'
+        elif node['id'] == 'TGK':
+            node['color'] = '#dce319ff'
+        else:
+            node ['color'] = 'grey'
+
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
         path = '/tmp'
@@ -63,7 +82,7 @@ else:
     sites = nx.from_pandas_edgelist(si_select, 'common_name', 'site')
 
     # Initiate PyVis network object
-    site_net = Network(height='1000px', bgcolor='white', font_color='blue')
+    site_net = Network(height='1000px', bgcolor='black', font_color='grey')
 
     # Take Networkx graph and translate it to a PyVis graph format
     site_net.from_nx(sites)
@@ -72,14 +91,15 @@ else:
     site_net.repulsion(node_distance=420, central_gravity=0.33,
                        spring_length=110, spring_strength=0.10,
                        damping=0.95)
-
+    
+    # Adjust node colors to Viridis pallette
     for node in site_net.nodes:
         if node['id'] == 'MAK':
             node['color'] = '#440154ff'
         elif node['id'] == 'ASSR':
             node['color'] = '#453781ff'
         elif node['id'] == 'BET':
-            node['color'] = '#33638dff'
+            color = '#33638dff'
         elif node['id'] == 'MAS':
             node['color'] = '#238a8dff'
         elif node['id'] == 'MTD':
@@ -87,9 +107,10 @@ else:
         elif node['id'] == 'RNP':
             node['color'] = '#73d055ff'
         elif node['id'] == 'TGK':
-            node['color'] = '#dcde319ff'
+            node['color'] = '#dce319ff'
         else:
-            node ['color'] = 'black'
+            node ['color'] = 'white'
+    
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
         path = '/tmp'
